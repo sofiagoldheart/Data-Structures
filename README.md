@@ -1,1 +1,1 @@
-. . . ꒰ ♡ ꒱ ,, ⌲˘͈ᵕ˘͈  clases y tareas de mi clase de diseño de patrones.
+. . . ꒰ ♡ ꒱ ,, ⌲˘͈ᵕ˘͈  códigos y tareas en progreso de mi clase de diseño de patrones.
