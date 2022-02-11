@@ -7,7 +7,6 @@ void imprimir(int *arr, int s);
 int *createarr(int s);
 
 int main() {
-  cout << "Hello World!\n";
   int *api = NULL;
   int sizearr=0;
   
