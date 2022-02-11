@@ -1,1 +1,2 @@
-Clases y tareas de mi clase de Diseño de Patrones <3
+clases y tareas de mi clase de diseño de patrones.
+. . . . . . . . . . . . . . . ꒰ ♡ ꒱ ,, ⌲˘͈ᵕ˘͈
