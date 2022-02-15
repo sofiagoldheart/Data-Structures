@@ -72,3 +72,78 @@ void capture_phones(cell_phone *ac, int s)
       scan_cell_phone(&(ac[i]));
    }
 }
+//*
+#include<iostream>
+#include<string.h>
+using namespace std;
+const int MAX = 3;
+
+struct cell_phone{
+   int IDM; //Identificador de modelo
+   int IDB; // Identificador de marca
+   char name[10];
+   float dimension;
+   float price; 
+};
+
+void scan_cell_phone(cell_phone *apc);
+void print_cell_phone(cell_phone apc);
+void capture_phones(cell_phone *ac, int s);
+cell_phone *create_cell_phone(int s);
+
+void list_phone( cell_phone *ac ,int s);
+
+
+int main(){
+    cell_phone *apcel01=NULL;
+    int sarr;
+
+    cout << "size of the array: ";
+    cin >> sarr;
+    apcel01 = create_cell_phone(sarr); 
+    scan_cell_phone(&(apcel01[1]));
+    print_cell_phone(apcel01[1]);
+    capture_phones(apcel01,sarr);
+    cout << "";
+    list_phone( apcel01,sarr);
+      return 0;
+}
+
+cell_phone *create_cell_phone(int s){
+  cell_phone *nitem=NULL;
+  
+  nitem = new cell_phone[s];
+  return nitem;
+}
+
+void scan_cell_phone(cell_phone *apc){
+   cout <<"Scan content of Cell Phone"<<endl;
+   cout <<"Enter ID Model: "; cin >> apc->IDM;
+   cout <<"Enter ID Brand: "; cin >> apc->IDB;
+   cout <<"Enter name: "; cin >> apc->name;
+   cout <<"Enter dimension: "; cin >> apc->dimension;
+   cout <<"Enter price: "; cin >> apc->price;
+}
+
+void print_cell_phone(cell_phone pc){
+    cout <<"Content of Cell Phone"<<endl;
+    cout <<"ID Model: "<<pc.IDM<<endl;
+    cout <<"ID Brand: "<<pc.IDB<<endl;
+    cout <<"Name: "<<pc.name<<endl;
+    cout <<"Dimension: "<<pc.dimension<<endl;
+    cout <<"Price: "<<pc.price<<endl;
+}
+
+void list_phone( cell_phone *ac ,int s){
+  for(int i = 0; i < s; i++){
+    print_cell_phone(ac[i]);
+  }
+}
+
+void capture_phones(cell_phone *ac, int s)
+{
+   for (int i = 0; i < s; i++)
+   {
+      scan_cell_phone(&(ac[i]));
+   }
+}
