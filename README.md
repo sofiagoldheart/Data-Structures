@@ -1,1 +1,1 @@
-. . . ꒰ ♡ ꒱ ,, ⌲˘͈ᵕ˘͈  códigos y tareas en progreso de mi clase de diseño de patrones.
+Códigos de la clase de Diseño de Patrones en Universidad del Caribe.
