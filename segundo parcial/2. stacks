@@ -10,6 +10,8 @@ struct Stacki{
 
 bool InitStacki(Stacki *sti, int s);
 void ShowStack(Stacki sti);
+bool isStackiEmpty (Stacki si);
+bool isStackFull (stacki si);
 
 int main() {
 
@@ -22,7 +24,7 @@ int main() {
       }
       ShowStack(s1);   
       }
-   bool InitStacki (Stacki *sti, int s){
+ bool InitStacki (Stacki *sti, int s){
       if ((sti->arri = new int[s]) == NULL){
         return false;  
       }
