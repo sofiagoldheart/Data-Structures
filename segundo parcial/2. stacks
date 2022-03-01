@@ -1,1 +1,36 @@
+#include <iostream>
+using namespace std;
 
+struct Stacki{
+
+  int sizestack;
+  int top;
+  int *arri;
+};
+
+bool InitStacki(Stacki *sti, int s);
+void ShowStack(Stacki sti);
+
+int main() {
+
+  cout << "Creador de pilas!\n";
+
+  Stacki s1;
+  if(!InitStacki(&s1,3)){
+    cout << "Error" << endl;
+    exit(1);
+  }
+  ShowStack(s1);   
+}
+    bool InitStacki (Stacki *sti, int s){
+      if ((sti->arri = new int[s]) == NULL){
+        return false;  
+      }
+      sti->top=-1;
+      sti -> sizestack = s;
+      return true;
+    }
+  void ShowStack(Stacki sti){
+  cout << "Posicion: " << sti.top << endl;
+  cout << "Tamaño del stack: " <<sti.sizestack; 
+  }
