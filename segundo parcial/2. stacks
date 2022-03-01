@@ -29,6 +29,7 @@ int main() {
       }
       ShowStack(s1);   
       }
+      
  bool InitStacki (Stacki *sti, int s){
       if ((sti->arri = new int[s]) == NULL){
         return false;  
@@ -64,3 +65,5 @@ int main() {
     si -> arii [++si -> top] = elem;
       return true;
     }
+    
+    int 
