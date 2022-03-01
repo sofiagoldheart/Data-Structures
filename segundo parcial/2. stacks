@@ -64,3 +64,16 @@ int main() {
     si -> arii [++si -> top] = elem;
       return true;
     }
+    
+    int Popi (Stacki *si, bool *flag){
+      int vret = 0;
+        if (isStackiEmpty (*si)){
+          cout << "Stack Full" << endl;
+          *(flag) = false;
+     }
+     else{
+      *(flag)= true;
+        vret = si -> arri [si -> top--]
+          }
+     return vret;
+     }
