@@ -32,21 +32,30 @@ int main() {
       sti -> sizestack = s;
       return true;
     }
+    
  void ShowStack(Stacki sti){
   cout << "Posicion: " << sti.top << endl;
   cout << "Tamaño del stack: " <<sti.sizestack; 
   }
   
- bool isStackiEmpty (Stacki si){
+  bool isStackiEmpty (Stacki si){
     if (si.top == -1)
       return true;
     }
     return false;
     }
+    
   bool isStackFull (stacki si){
       if (si top == ()si.sstack -1) ) {
   return true;
     }
     return false;
     }  
-      
+    
+   bool Pushi (Slacki *si, int elem){
+    int (isStackiFull (*(si))){
+      return false;
+    }
+    si -> arii [++si -> top] = elem;
+      return true;
+    }
