@@ -19,10 +19,10 @@ int main() {
   if(!InitStacki(&s1,3)){
     cout << "Error" << endl;
     exit(1);
-  }
-  ShowStack(s1);   
-}
-    bool InitStacki (Stacki *sti, int s){
+      }
+      ShowStack(s1);   
+      }
+   bool InitStacki (Stacki *sti, int s){
       if ((sti->arri = new int[s]) == NULL){
         return false;  
       }
@@ -30,7 +30,21 @@ int main() {
       sti -> sizestack = s;
       return true;
     }
-  void ShowStack(Stacki sti){
+ void ShowStack(Stacki sti){
   cout << "Posicion: " << sti.top << endl;
   cout << "Tamaño del stack: " <<sti.sizestack; 
   }
+  
+ bool isStackiEmpty (Stacki si){
+    if (si.top == -1)
+      return true;
+    }
+    return false;
+    }
+  bool isStackFull (stacki si){
+      if (si top == ()si.sstack -1) ) {
+  return true;
+    }
+    return false;
+    }  
+      
