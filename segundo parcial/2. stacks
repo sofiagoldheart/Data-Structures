@@ -1,4 +1,5 @@
 /*
+editando aún
 RECURSOS:
 https://docs.microsoft.com/es-es/cpp/cpp/indirection-operator-star?view=msvc-170
 https://www.geeksforgeeks.org/stack-data-structure-introduction-program/
@@ -17,6 +18,8 @@ bool InitStacki(Stacki *sti, int s);
 void ShowStack(Stacki sti);
 bool isStackiEmpty (Stacki si);
 bool isStackFull (Stacki si);
+bool Pushi (Stacki *si, int elem);
+int Popi (Stacki *si, bool *flag);
 
 int main() {
 
@@ -29,6 +32,7 @@ int main() {
       }
       ShowStack(s1);   
       }
+      
  bool InitStacki (Stacki *sti, int s){
       if ((sti->arri = new int[s]) == NULL){
         return false;  
@@ -48,7 +52,6 @@ int main() {
       return true;
     }
     return false;
-    }
     
   bool isStackFull (Stacki si){
       if (si top == ()si.sstack -1) ) {
@@ -57,7 +60,7 @@ int main() {
     return false;
     }  
     
-   bool Pushi (Slacki *si, int elem){
+   bool Pushi (Stacki *si, int elem){
     int (isStackiFull (*(si))){
       return false;
     }
@@ -77,3 +80,4 @@ int main() {
           }
      return vret;
      }
+    
