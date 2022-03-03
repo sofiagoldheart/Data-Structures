@@ -4,80 +4,91 @@ RECURSOS:
 https://docs.microsoft.com/es-es/cpp/cpp/indirection-operator-star?view=msvc-170
 https://www.geeksforgeeks.org/stack-data-structure-introduction-program/
 */
-#include <iostream>
+#include<iostream>
+#include<stdio.h>
+
 using namespace std;
+const int MAX = 3;
 
-struct Stacki{
-
-  int sizestack;
-  int top;
-  int *arri;
+struct StackI{
+    int *arri;
+    int top;
+    int sizemax;
 };
 
-bool InitStacki(Stacki *sti, int s);
-void ShowStack(Stacki sti);
-bool isStackiEmpty (Stacki si);
-bool isStackFull (Stacki si);
-bool Pushi (Stacki *si, int elem);
-int Popi (Stacki *si, bool *flag);
+bool IniStackI(StackI *si, int s);
+bool isStackEmpty(StackI si);
+bool isStackFull(StackI si);
+void ShowStackI(StackI si);
+bool PushI(StackI *si, int elem);
+int  PopI(StackI *si, bool *vflag);
 
-int main() {
+int main(){
+    StackI sti01;
+    bool valid;
+    int item;
 
-  cout << "Creador de pilas!\n";
-
-  Stacki s1;
-  if(!InitStacki(&s1,3)){
-    cout << "Error" << endl;
-    exit(1);
-      }
-      ShowStack(s1);   
-      }
-      
- bool InitStacki (Stacki *sti, int s){
-      if ((sti->arri = new int[s]) == NULL){
-        return false;  
-      }
-      sti->top=-1;
-      sti -> sizestack = s;
-      return true;
+    cout << "Initialization OK: " << IniStackI(&sti01,5)<<endl;
+    cout << "Is empty: "<< isStackEmpty(sti01)<<endl;
+    cout << "Is full: "<< isStackFull(sti01)<<endl;
+    ShowStackI(sti01);
+    cout << "is Push OK: "<< PushI(&sti01,2) <<endl;
+    ShowStackI(sti01);
+    cout << "is Push OK: "<< PushI(&sti01,8) <<endl;
+    ShowStackI(sti01);
+    item = PopI(&sti01,&valid);
+    if (valid){
+        cout << "Element extracted: "<<item<<endl;
     }
-    
- void ShowStack(Stacki sti){
-  cout << "Posicion: " << sti.top << endl;
-  cout << "Tamaño del stack: " <<sti.sizestack; 
-  }
-  
-  bool isStackiEmpty (Stacki si){
-    if (si.top == -1)
-      return true;
+    return 0;
+}
+
+bool IniStackI(StackI *si, int s){
+    si->arri = new int[s];
+    if (si->arri == NULL){
+        cout << "Not enough memory"<<endl;
+        return false;
     }
+    si->top = -1;
+    si->sizemax = s;
+    return true;
+}
+
+bool isStackEmpty(StackI si){
+    if (si.top < 0){ return true;}
     return false;
-    
-  bool isStackFull (Stacki si){
-      if (si top == ()si.sstack -1) ) {
-  return true;
-    }
+}
+
+bool isStackFull(StackI si){
+    if (si.top >= (si.sizemax -1) ){ return true;}
     return false;
-    }  
-    
-   bool Pushi (Stacki *si, int elem){
-    int (isStackiFull (*(si))){
-      return false;
+}
+
+void ShowStackI(StackI si){
+  printf("Address of first element on Stack: %p\n",si.arri);
+  cout << "Size of Stack: "<<si.sizemax<<endl;
+  cout << "Position of top: "<<si.top<<endl;
+
+}
+
+bool PushI(StackI *si, int elem){
+    if (isStackFull(*si)){
+        cout <<"Stack Full";
+        return false;
     }
-    si -> arii [++si -> top] = elem;
-      return true;
+    si->arri[++si->top] = elem;
+    cout <<"Intro: "<< si->arri[si->top]<<endl;
+    return true;
+}
+
+int  PopI(StackI *si, bool *vflag){
+    int vret = 0;
+    if (isStackEmpty(*si)){
+       *vflag = false; 
     }
-    
-    int Popi (Stacki *si, bool *flag){
-      int vret = 0;
-        if (isStackiEmpty (*si)){
-          cout << "Stack Full" << endl;
-          *(flag) = false;
-     }
-     else{
-      *(flag)= true;
-        vret = si -> arri [si -> top--]
-          }
-     return vret;
-     }
-    
+    else{
+        vret = si->arri[si->top--];
+        *vflag = true;
+    }
+    return vret;
+}
