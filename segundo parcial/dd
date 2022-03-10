@@ -75,3 +75,10 @@ bool InQueveI(QueveI *q,int elem){
    }
    return elem;
  }
+ if((q.last )
+q -> arrii;
+q - > ast;
+
+q -> last = (q -> last+ 1)%
+q -> sizeq;
+
