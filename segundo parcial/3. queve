@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+struct QueveI{
+int *arri;
+int sizeq;
+int last;
+};
+void showQI(QueveI q);
+bool InitQI(QueveI *q,int s);
+bool isQIempty(QueveI q);
+bool isQIfull(QueveI q);
+bool InQueveI(QueveI *q,int elem);
+int DequeveI(QueveI *q,bool *flag);
+
+int main() {
+  QueveI qi;
+  bool b1;
+  showQI(qi);
+  b1=InitQI(&qi,5);
+  cout<<b1<<endl;
+  cout<<qi.last<<endl;
+  InQueveI(&qi,10);
+  cout<<qi.arri[0]<<endl;
+  
+}
+
+void showQI(QueveI q){
+  cout<<q.arri<<endl;
+  cout<<q.sizeq<<endl;
+  cout<<q.last<<endl;
+}
+bool InitQI(QueveI *q,int s){
+  if((q->arri=new int[s])==NULL){
+    cout<<"not enought memory"<<endl;
+    return false;
+  }
+  q->sizeq=s;
+  q->last=-1;
+  return true;
+}
+bool isQIempty(QueveI q){
+  if(q.last==-1){
+    return true;
+  }
+  return false;
+}
+bool isQIfull(QueveI q){
+  if(q.last>=(q.sizeq-1)){
+    return true;
+  }
+  return false;
+}
+bool InQueveI(QueveI *q,int elem){
+  if(isQIfull(*(q))){
+    return false;
+  }
+  if(isQIempty(*(q))){
+    q->last=0;
+    q->arri[q->last]=elem;
+    return true;
+  }
+  q->arri[++q->last]=elem;
+  return true;
+}
+ int DequeveI(QueveI *q,bool *flag){
+   int elem=0;
+   if(isQIempty(*q)){
+     elem=q->arri[0];
+     for(int i=0;i<q->last;i++){
+       q->arri[i]=q->arri[i+1];
+     }
+     q->last--;
+   }
+   return elem;
+ }
