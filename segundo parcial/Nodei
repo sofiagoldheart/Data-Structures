@@ -1,0 +1,42 @@
+//Listas Simplemente Enlazadas
+#include <iostream>
+using namespace std;
+
+struct Nodei {
+  int x;
+  Nodei *next;
+};
+
+Nodei* CreateNodei(int elem) {
+  Nodei *apnew = NULL;
+  apnew= new Nodei [1];
+  apnew -> x = elem;
+  apnew -> next = NULL;
+  return apnew;
+}
+
+bool InsertNodei (Nodei **H, int elem){
+  Nodei *apnew = CreateNodei (elem);
+  Nodei *api = *H;
+  if (apnew == NULL){  
+    return false;
+    }
+  if (*H == NULL){
+    *H = apnew;
+    }
+  else {
+    while (api -> next ! = NULL){
+      api = api -> next;
+      }
+      api -> next == apnew;
+    }
+  return true;
+}
+
+int main (){
+  Nodei * Header;
+  Header = CreateNodei (10);
+  cout << Header -> x << endl; 
+  cout << Header -> next << endl; 
+  return 0;
+}
