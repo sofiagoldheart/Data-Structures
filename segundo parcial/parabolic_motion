@@ -1,0 +1,126 @@
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+
+using namespace std;
+
+  struct ParabolicMotion {
+
+    char ID; 
+    double time = 0;
+     double x = 0;
+    double y = 0;
+    double Vx = 0;
+    double Vy = 0;
+
+};
+float PrintParabolic(ParabolicMotion pb, char letter);
+float VelocityX (float Vi, float theta);
+float VelocityY (float theta, float Vi, float t);
+float PositionX (float Vi, float theta, float t);
+float PositionY (float Vi, float theta, float t ,float h);
+
+  int main() {
+  float Vi, theta, h, t, S, NS;
+    ParabolicMotion pam;
+    char letra;
+    
+    
+        cin >> Vi;
+ 
+        cin >> theta;
+
+        cin >> h;
+  
+        cin >> t;
+ 
+        cin >> S;
+  
+        cin >> NS;
+    
+    for (int i = 0; i < NS; i++){
+
+    pam.time = t;
+     pam.Vx = VelocityX(Vi, theta);
+     pam.Vy = VelocityY(theta, Vi, t);
+     pam.x = PositionX(Vi, theta, t);   
+     pam.y = PositionY(Vi, theta,t,h);
+
+      if(i==0){
+        letra = 'A';
+      }else if (i==1){
+        letra = 'B';
+      }else if (i==2){
+        letra = 'C';
+      }else if (i==3){
+        letra = 'D';
+      }else if (i==4){
+        letra = 'E';
+      }else if (i==5){
+        letra = 'F';
+      }else if (i==6){
+        letra = 'G';
+      }else if (i==7){
+        letra = 'H';
+      }else if (i==8){
+        letra = 'I';
+      }else if (i==9){
+        letra = 'J';
+      }else if (i==10){
+        letra = 'K';
+      }
+
+cout << "ID: ID" << letra << endl;
+        printf("time: %.1f\n",pam.time);
+        printf("x: %.3f\n",pam.x);
+        printf("y: %.3f\n",pam.y);
+        printf("vx: %.3f\n",pam.Vx); 
+        printf("vy: %.3f\n",pam.Vy);
+  cout << endl;
+      
+      t = t+S;
+
+      
+     // PrintParabolic(pam, letra);
+  
+}    
+    
+
+     }
+
+
+float VelocityX (float Vi, float theta){
+  float Vx;
+    Vx = Vi *cos(theta);
+return Vx;
+    }
+
+float VelocityY (float theta, float Vi, float t){
+  float Vy;
+     Vy = Vi *sin(theta) - 9.8 * (t);
+return Vy;
+    }
+
+float PositionX (float Vi, float theta, float t){
+  float x;
+     x = Vi *cos(theta) * t;
+return x;
+    }
+
+float PositionY ( float Vi, float theta, float t ,float h){
+  float y;
+     y = Vi * sin(theta) * t - ( 0.5 * 9.8 * (t*t) ) + h;
+return y;
+    }
+
+float PrintParabolic(ParabolicMotion pb, char letter) {
+  
+        cout << "ID: ID" << letter << endl;
+        printf("%.1f\n",pb.time);
+        printf("%.3f\n",pb.x);
+        printf("%.3f\n",pb.y);
+        printf("%.3f\n",pb.Vx); 
+        printf("%.3f\n",pb.Vy);
+  cout << endl;
+        
+    }
