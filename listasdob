@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+struct Nodei{
+	int x;
+  Nodei *prev;
+	Nodei *next;
+};
+
+Nodei *Createnode(int elem){
+	Nodei *newnode;
+	newnode == new Nodei[1];
+	if(newnode == NULL){
+		return NULL;
+	}
+	newnode->x=elem;
+  newnode->prev=newnode;
+	newnode->next=newnode;
+	return newnode;
+}
+
+void CreateListD (Nodei **H, Nodei **T){
+  Nodei *newnodeH = NULL;
+  Nodei *newnodeT = NULL;
+  newnodeH = Createnode(1);
+  newnodeT = Createnode(1);
+  newnodeH -> next = newnodeT;
+  newnodeT -> prev = newnodeH;
+  *H = newnodeH;
+  *T = newnodeT;
+}
+
+bool InsertAsciD (nodei *H, int i){
+  nodei *newnode = Createnode (elem);
+  if (newnode == NULL) {
+    return false;
+  }
+  
+}
+
+bool InstertNodei(Nodei*H,int elem){
+	Nodei *api;
+	Nodei *newnode=Createnode(elem);
+	if(newnode==NULL){
+		return false;
+	}
+	api=H;
+	while(api->next != api){
+		api=api->next;
+	}
+	api->next=newnode;
+	return true;
+}
+
+bool RemoveNodei(Nodei *H){
+	Nodei *api=H;
+	if(api->next==H){
+		return false;
+	}
+	while(api->next != api->next->next){
+		api=api->next;
+	}
+	delete(api->next);
+	api->next=api;
+	return true;
+}
+
+int main(){
+  nodei * Header = NULL;
+  nodei * Tail = NULL;
+  CreateListD (&Header, &Tail);
+	return 0;
+}
