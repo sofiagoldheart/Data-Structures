@@ -8,6 +8,8 @@ struct Nodei{
 	Nodei *next;
 };
 
+//Usamos otro apuntador (prev) que al igual que next, apunta a sí mismo.
+
 Nodei *Createnode(int elem){
 	Nodei *newnode;
 	newnode == new Nodei[1];
@@ -20,23 +22,18 @@ Nodei *Createnode(int elem){
 	return newnode;
 }
 
-void CreateListD (Nodei **H, Nodei **T){
-  Nodei *newnodeH = NULL;
-  Nodei *newnodeT = NULL;
+//Creamos una nueva función (create list).
+
+void CreateListD(Nodei **H, Nodei **T){
+  Nodei *newnodeH=NULL;
+  Nodei *newnodeT=NULL;
   newnodeH = Createnode(1);
   newnodeT = Createnode(1);
-  newnodeH -> next = newnodeT;
-  newnodeT -> prev = newnodeH;
-  *H = newnodeH;
-  *T = newnodeT;
-}
-
-bool InsertAsciD (nodei *H, int i){
-  nodei *newnode = Createnode (elem);
-  if (newnode == NULL) {
-    return false;
-  }
-  
+  //El prev y el next de ambos centinelas apuntan a sí mismos, por lo que enlazamos el next del Header al Tail y el prev del Tail al Header.
+  newnodeH->next=newnodeT;
+  newnodeT->prev=newnodeH;
+  *H=newnodeH;
+  *T=newnodeT;
 }
 
 bool InstertNodei(Nodei*H,int elem){
@@ -66,9 +63,44 @@ bool RemoveNodei(Nodei *H){
 	return true;
 }
 
+bool InsertAsciD(Nodei *H, int elem){
+  Nodei *api=H;
+  Nodei *newnode=Createnode(elem);
+  if(newnode == NULL){
+    return false;
+  }
+}
+
+bool InsertSortDL(Nodei *H, int elem){
+  Nodei *newnode = Createnode(elem);
+  Nodei *api=H;
+  if(newnode == NULL){
+    return false;
+    }
+  while(api->next != api->next->next && api->next->x < newnode->x){
+    api=api->next;
+  }
+  newnode->prev=api;
+  newnode->next=api->next;
+  api->next=newnode;
+  newnode->next->prev=newnode;
+  return true;
+}
+
+bool RemoveSortDL(Nodei *H, int elem){
+  Nodei *api=H->next;
+  while(api != api->next && api->x != elem){
+    api = api->next;
+  }
+  if(api==api->next){
+    return false;
+  }
+  api->prev->next=api->next;
+  api->next->prev=api->prev;
+  delete (api);
+  return true;
+}
+
 int main(){
-  nodei * Header = NULL;
-  nodei * Tail = NULL;
-  CreateListD (&Header, &Tail);
-	return 0;
+  
 }
