@@ -10,6 +10,8 @@ struct Nodo{
 
 Nodo *CrearNodo(int elem);
 bool insertT (Nodo *arbol, int elem);
+Nodo *root = CreateNodeT (12);
+void EntreOrden (NodeT*root);
   
 int main() {
   Nodo *root = NULL;
@@ -24,7 +26,6 @@ int main() {
   insertT(root, 6);  
   insertT(root, 19);  
 }
-
 
 Nodo *CrearNodo(int elem)
 {
@@ -62,4 +63,14 @@ bool insertT (Nodo *arbol, int elem){
     }    
     return insertT(arbol->derecha,elem);
   }
+}
+
+Nodo *root = CreateNodeT (12){
+
+}
+
+void EntreOrden (NodeT*root){
+cout << root -> x;
+EntreOrden (root -> leftchild);
+EntreOrden (root -> rightchild);
 }
