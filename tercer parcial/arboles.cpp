@@ -71,6 +71,7 @@ Nodo *root = CreateNodeT (12){
 
 void EntreOrden (NodeT*root){
 cout << root -> x;
+  if 
 EntreOrden (root -> leftchild);
 EntreOrden (root -> rightchild);
 }
