@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 struct Nodo{
@@ -10,8 +9,7 @@ struct Nodo{
 
 Nodo *CrearNodo(int elem);
 bool insertT (Nodo *arbol, int elem);
-Nodo *root = CreateNodeT (12);
-void EntreOrden (NodeT*root);
+void PreOrden(Nodo *root);
   
 int main() {
   Nodo *root = NULL;
@@ -65,13 +63,38 @@ bool insertT (Nodo *arbol, int elem){
   }
 }
 
-Nodo *root = CreateNodeT (12){
+void PreOrden(Nodo *root){
+    if(root==NULL)
+    {
+      return;  
+    }
+    cout<<root->num;
+    PreOrden(root -> izquierda);
+    PreOrden(root -> derecha);
+  }
 
+void EntreOrden(Nodo *root)
+{
+  if (root==NULL)
+  {
+    return;
+  }
+  else 
+  {
+    EntreOrden(root->izquierda);
+    cout<<root->num<<",";
+    EntreOrden(root->derecha);
+  }
 }
 
-void EntreOrden (NodeT*root){
-cout << root -> x;
-  if 
-EntreOrden (root -> leftchild);
-EntreOrden (root -> rightchild);
+void PosOrden(Nodo *root)
+{
+  if (root==NULL){
+    return;
+  }
+  else{
+    PosOrden(root->izquierda);
+    PosOrden(root->derecha);
+    cout << root -> num <<",";
+  }
 }
